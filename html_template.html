@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Dynamic PDF Report</title>
+        <style>
+            table {
+                width: 100%%;
+                border-collapse: collapse;
+            }
+            table, th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Report for {{ userName or 'Unknown User' }}</h1>
+        <p><strong>Timestamp:</strong> {{ timestamp or 'Not provided' }}</p>
+        <p><strong>Template Name:</strong> {{ pdfTemplateName or 'Default Template' }}</p>
+
+        <h2>Parameters</h2>
+        <p><strong>Label 1:</strong> {{ params.label1 }}</p>
+
+        <h3>Table 1 Data:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in params.table1 %}
+                <tr>
+                    <td>{{ row.col1 }}</td>
+                    <td>{{ row.col2 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </body>
+    </html>
