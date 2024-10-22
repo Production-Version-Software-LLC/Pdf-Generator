@@ -2,10 +2,7 @@ from flask import Flask, request, render_template_string, send_file
 from weasyprint import HTML
 import io
 
-
 app = Flask(__name__)
-
-
 @app.route('/json-to-pdf', methods=['POST'])
 def json_to_pdf():
     data = request.get_json()
