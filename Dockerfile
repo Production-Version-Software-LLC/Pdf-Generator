@@ -1,6 +1,7 @@
 # Use an official Ubuntu as a base image
 FROM python:3.10-slim
 
+FROM python:3.10-slim
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -23,6 +24,8 @@ COPY . /app
 
 # Expose port 8080 (or any other port your app uses)
 EXPOSE 5000
+
+VOLUME /templates
 
 # Command to run the application
 ENTRYPOINT ["python3", "main.py"]
